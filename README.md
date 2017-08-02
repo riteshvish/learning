@@ -1,1 +1,1 @@
-this is learing readme
+this is learning read.me
