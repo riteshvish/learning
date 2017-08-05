@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Search a string for "w3Schools", and display the position of the match:</p>
+
+<button onclick="findStrBetween('<productId:','>')">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function findStrBetween(s1,s2) {
+
+   try{
+   	var str = "My cow a <productId:123456789> lways gives milk";
+    //var n = str.match(/<productId:(.*)>/i); regex
+    var regExp = /<productId:(.*)>/i;// regex var
+    var pattern1=s1+'(.*)'+s2; // dynamic pattern
+    var reg=new RegExp(pattern1, 'gi') // regex obj
+	var matches = regExp.exec(str);
+    var matches2= str.match(reg)[0];
+    alert(matches2.replace(s1,'').replace(s2,''))
+	document.getElementById("demo").innerHTML = matches2;
+    }
+    catch(e){
+    	alert(e)
+    }
+
+}
+</script>
+
+</body>
+</html>
