@@ -7,3 +7,4 @@ https://github.com/vikrantsharma123/ios-inshorts-view
 http://embed.plnkr.co/9luTng/?show=preview
 http://plnkr.co/edit/mSz2fqjTzR69wp3FKuzP?p=preview
 https://github.com/start-angular/SB-Admin-BS4-Angular-4
+https://stackoverflow.com/questions/23770672/strongloop-loopback-model-find-with-or-condition-on-where-filter
