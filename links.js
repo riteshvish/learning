@@ -8,3 +8,4 @@ http://embed.plnkr.co/9luTng/?show=preview
 http://plnkr.co/edit/mSz2fqjTzR69wp3FKuzP?p=preview
 https://github.com/start-angular/SB-Admin-BS4-Angular-4
 https://stackoverflow.com/questions/23770672/strongloop-loopback-model-find-with-or-condition-on-where-filter
+https://github.com/aksonov/react-native-router-flux/commit/0ef1f7a19ca30d99e1892595da5be67a15c8fc22
