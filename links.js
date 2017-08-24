@@ -31,4 +31,5 @@ deb [rch=amd64,amd64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4
 }
 {
 https://www.youtube.com/watch?v=59W5ZHPbwgo (Enable Disable aws EC2 Ports)
-}                                    
+}          
+          http://embed.plnkr.co/mMVsbT/ (Angular 2 Custom Input File Component)
