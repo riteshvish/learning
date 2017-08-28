@@ -14,6 +14,13 @@ https://medium.com/@yushulx/react-native-bridging-modules-for-android-from-scrat
 https://www.youtube.com/watch?v=u9EGy1AJHsc
 
 
+React call child method
+https://github.com/kriasoft/react-starter-kit/issues/909
+<ImageSlide  ref={ref => (this.child = ref)}/> // for react-native
+<Child onRef={ref => (this.child = ref)} /> //for reactjs
+https://github.com/FaridSafi/react-native-gifted-chat/issues
+https://github.com/FaridSafi/react-native-gifted-chat/issues/513
+
 {
   howt to create custom react native module
   new "react-native-my-fancy":"file:../MyFancy",
