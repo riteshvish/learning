@@ -28,3 +28,15 @@ https://github.com/FaridSafi/react-native-gifted-chat/issues/513
   react-native-create-library link (https://github.com/frostney/react-native-create-library)
   integation link (https://medium.com/@yushulx/react-native-bridging-modules-for-android-from-scratch-c651eeee7872)
 }
+
+ https://www.youtube.com/watch?v=bi7ow5NGC-U ((Updated 2017) Connect to Amazon EC2 using PuTTY private key on Windows)  
+{
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+https://askubuntu.com/questions/815896/type-echo-is-not-known-on-line-1-in-source-list-etc-apt-sources-list-d-mongod
+after getting error
+deb [rch=amd64,amd64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse                                    
+}
+{
+https://www.youtube.com/watch?v=59W5ZHPbwgo (Enable Disable aws EC2 Ports)
+}          
+          http://embed.plnkr.co/mMVsbT/ (Angular 2 Custom Input File Component)
