@@ -42,3 +42,4 @@ https://www.youtube.com/watch?v=59W5ZHPbwgo (Enable Disable aws EC2 Ports)
           http://embed.plnkr.co/mMVsbT/ (Angular 2 Custom Input File Component)
 https://www.barbarianmeetscoding.com/blog/2016/03/29/getting-started-with-angular-2-step-by-step-5-forms-and-validation/
 http://plnkr.co/edit/aEjlwIKKhcErWAnIhY3C?p=preview
+https://bootsnipp.com/snippets/P3Vvm (model pdf)
