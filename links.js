@@ -29,18 +29,21 @@ https://github.com/FaridSafi/react-native-gifted-chat/issues/513
   integation link (https://medium.com/@yushulx/react-native-bridging-modules-for-android-from-scratch-c651eeee7872)
 }
 
- https://www.youtube.com/watch?v=bi7ow5NGC-U ((Updated 2017) Connect to Amazon EC2 using PuTTY private key on Windows)  
+ https://www.youtube.com/watch?v=bi7ow5NGC-U ((Updated 2017) Connect to Amazon EC2 using PuTTY private key on Windows)
 {
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 https://askubuntu.com/questions/815896/type-echo-is-not-known-on-line-1-in-source-list-etc-apt-sources-list-d-mongod
 after getting error
-deb [rch=amd64,amd64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse                                    
+deb [rch=amd64,amd64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse
 }
 {
 https://www.youtube.com/watch?v=59W5ZHPbwgo (Enable Disable aws EC2 Ports)
-}          
+}
           http://embed.plnkr.co/mMVsbT/ (Angular 2 Custom Input File Component)
 https://www.barbarianmeetscoding.com/blog/2016/03/29/getting-started-with-angular-2-step-by-step-5-forms-and-validation/
 http://plnkr.co/edit/aEjlwIKKhcErWAnIhY3C?p=preview
 https://bootsnipp.com/snippets/P3Vvm (model pdf)
 https://codepen.io/tjoen/pen/vCHfu (Html Invoice)
+https://stackoverflow.com/questions/12468471/nodejs-gm-resize-and-pipe-to-response?rq=1
+https://stackoverflow.com/questions/35940984/angular2-call-function-of-parent-component
+http://markocen.github.io/blog/pre-processing-uploaded-image-on-nodejs.html
