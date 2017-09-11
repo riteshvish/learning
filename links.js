@@ -47,3 +47,28 @@ https://codepen.io/tjoen/pen/vCHfu (Html Invoice)
 https://stackoverflow.com/questions/12468471/nodejs-gm-resize-and-pipe-to-response?rq=1
 https://stackoverflow.com/questions/35940984/angular2-call-function-of-parent-component
 http://markocen.github.io/blog/pre-processing-uploaded-image-on-nodejs.html
+{ React Native ScrollView infinity data loading
+                              onScroll={(e) => {
+
+          var windowHeight = Dimensions.get('window').height,
+            height = e.nativeEvent.contentSize.height,
+            offset = e.nativeEvent.contentOffset.y;
+
+          if (windowHeight + offset >= height - 100 && scrollEnds) {
+
+            scrollEnds = false;
+            console.warn("scroll");
+            //
+        
+            if(self.props.products){
+                self.props.getRecentSearchDataRefresh({
+                  refresh: true,
+                  skip: self.props.products.length
+                });
+              }
+           
+          }
+
+        }}
+        scrollEventThrottle={100}
+}
