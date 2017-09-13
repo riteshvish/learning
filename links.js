@@ -85,3 +85,25 @@ lb datasource eg
     "allowExtendedOperators": true
   }
 after this change the datasource value in model-config.js
+
+How to create Relationship between two model 
+ItemsCategories
+  "relations": {
+    "items": {
+      "type": "hasMany",
+      "model": "Items",
+      "foreignKey": ""      
+    }
+  },
+
+Items Model
+"relations": {
+    "itemCategories": {
+      "type": "belongsTo",
+      "model": "ItemCategories",
+      "foreignKey": ""
+    }
+  },
+
+we have to create relationship in both Model i.e Items and ItemCategories 
+then only relationship work
