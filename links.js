@@ -72,3 +72,16 @@ http://markocen.github.io/blog/pre-processing-uploaded-image-on-nodejs.html
         }}
         scrollEventThrottle={100}
 }
+
+Loopback MongoDB Connection
+https://loopback.io/doc/en/lb2/Connecting-to-MongoDB.html
+npm install --save loopback-connector-mongodb
+lb datasource eg
+  "mdb": {
+    "database": "olivetheory",
+    "name": "mdb",
+    "hostname": "localhost",
+    "connector": "mongodb",
+    "allowExtendedOperators": true
+  }
+after this change the datasource value in model-config.js
