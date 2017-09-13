@@ -107,3 +107,22 @@ Items Model
 
 we have to create relationship in both Model i.e Items and ItemCategories 
 then only relationship work
+
+Hooks (Observers){
+ module.exports = function(Items) {
+  Items.observe('before save', function(ctx, next) {
+    if (ctx.isNewInstance) {
+      if (ctx.instance) {
+        ctx.instance.created = new Date();
+        ctx.instance.updated = new Date();
+      }
+    } else {
+      if (ctx.instance) {
+        ctx.instance.updated = new Date();
+      }
+    }
+    next();
+  });
+};
+ 
+}
