@@ -1,3 +1,5 @@
+https://plnkr.co/edit/iFXRkJWVZ9tQ9i6mxmuf?p=preview (JsonCustomInputComponent)
+
 https://medium.com/react-native-training/react-native-animations-using-the-animated-api-ebe8e0669fae
 https://code.tutsplus.com/tutorials/practical-animations-in-react-native--cms-27567
 https://tutorialzine.com/2015/12/creating-your-first-desktop-app-with-html-js-and-electron
