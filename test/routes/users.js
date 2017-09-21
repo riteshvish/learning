@@ -11,6 +11,17 @@ router.get('/', function(req, res, next) {
 });
 
 
+router.get('/test.png', function(req, res){
+    // var uid = req.params.uid,
+        // path = req.params[0] ? req.params[0] : 'index.html';
+    // res.sendfile(path, {root: './public'});
+    // res.render('index', { title: 'Express' });
+    path = req.params[0] ? req.params[0] : 'test.png';
+// res.sendfile('test.png');
+  res.setHeader('content-type', 'image/png');
+  res.sendfile(path, {root: './public/images'});
+});
+
 // router.get('/image', function(req, res, next){
 router.get('/image', function(req, res, next){
 console.log("called")
