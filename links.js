@@ -1,4 +1,5 @@
 https://plnkr.co/edit/iFXRkJWVZ9tQ9i6mxmuf?p=preview (JsonCustomInputComponent)
+http://blog.rangle.io/angular-2-ngmodel-and-custom-form-components/
 
 https://medium.com/react-native-training/react-native-animations-using-the-animated-api-ebe8e0669fae
 https://code.tutsplus.com/tutorials/practical-animations-in-react-native--cms-27567
