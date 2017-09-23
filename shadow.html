@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h1 {
+    text-shadow: 5px 5px 0px #FF0000;
+}
+#robbie {
+  background-image: url(https: ; //s3-us-west-2.amazonaws.com/s.cdpn.io/4273/wall-texture.jpg
+);
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#robbie img {
+filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12,Color='#444')";
+  filter: url(#drop-shadow);
+  -webkit-filter: drop-shadow(120px 12px 20px rgba(0,0,0,0.5));
+  filter: drop-shadow(120px 12px 20px rgba(0,0,0,0.5));
+}
+</style>
+</head>
+<body>
+<div id="robbie">
+  <img src="http://pngimg.com/uploads/leopard/leopard_PNG14830.png" alt>
+</div>
+
+<svg height="0" xmlns="http://www.w3.org/2000/svg">
+  <filter id="drop-shadow">
+  <feGaussianBlur in="SourceAlpha" stdDeviation="2.2"/>
+  <feOffset dx="12" dy="12" result="offsetblur"/>
+  <feFlood flood-color="rgba(0,0,0,0.5)"/>
+  <feComposite in2="offsetblur" operator="in"/>
+  <feMerge>
+  <feMergeNode/>
+  <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+</svg>
+<div id="robbie">
+  <img src="http://pngimg.com/uploads/leopard/leopard_PNG14830.png" alt>
+</div>
+
+<svg height="0" xmlns="http://www.w3.org/2000/svg">
+  <filter id="drop-shadow">
+  <feGaussianBlur in="SourceAlpha" stdDeviation="2.2"/>
+  <feOffset dx="12" dy="12" result="offsetblur"/>
+  <feFlood flood-color="rgba(0,0,0,0.5)"/>
+  <feComposite in2="offsetblur" operator="in"/>
+  <feMerge>
+  <feMergeNode/>
+  <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+</svg>
+
+
+
+</body>
+</html>
