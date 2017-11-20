@@ -129,3 +129,69 @@ Hooks (Observers){
 };
  
 }
+
+how to config in local system (imac)
+ebook (http://www-eu.apache.org/dist/lucene/solr/ref-guide/apache-solr-ref-guide-7.1.pdf)
+download lastest solr from . (http://www-eu.apache.org/dist/lucene/solr/7.1.0/)
+install mongo-connector using pip
+install solr_doc_manager using pip
+
+solr required replica set run below command 
+you can use nohup to run the servive in background
+       
+https://www.youtube.com/watch?v=3wus5trgi0A
+mongod --port 27017 --dbpath /data/db --replSet loSolr
+mongod --port 27018 --dbpath /data/db1 --replSet loSolr
+mongod --port 27019 --dbpath /data/db2 --replSet loSolr
+
+
+config={ _id:"loSolr", members:[
+    {_id:0,host:"localhost:27017",priority:1},
+    {_id:1,host:"localhost:27018",priority:0.5},
+    {_id:2,host:"localhost:27019",priority:0.5}
+]
+
+}
+rs.initiate(config)
+
+
+configure solr
+
+download solr 
+unzip solr
+go inside solr folder and run below command
+./bin/solr start // it will start solr
+to check http://localhost:8983/solr/#/
+
+// create core eg (product)
+create product folder inside solr
+then copy conf folder form defauld conf to product conf
+and schema.xml
+Fields not defined in schema.xml are not indexed.
+We also need to configure the org.apache.solr.handler.admin.LukeRequestHandler request handler in the solrconfig.xml. Requests to Solr server are routed through the request handler. Open the solrconfig.xml in the vi editor.
+solrconfig.xml
+Specify the request handler for the Mongo Connector.
+<requestHandler name="/admin/luke" class="org.apache.solr.handler.admin.LukeRequestHandler" />
+Also configure the auto commit to true so that Solr auto commits the data from MongoDB after the configured time.
+<autoCommit>
+    <maxTime>15000</maxTime>
+    <openSearcher>true</openSearcher>
+</autoCommit>
+After modifying the schema.xml and solrconfig.xml the Solr server needs to be restarted.
+
+bin/solr restart
+
+using below command to sync
+sudo nohup mongo-connector -m localhost:27017 -t http://localhost:8983/solr/product -d solr_doc_manager -n solr.product -v --auto-commit-interval=0 &
+
+refs links
+https://www.toadworld.com/platforms/nosql/b/weblog/archive/2017/02/03/indexing-mongodb-data-in-apache-solr
+
+make sure your mongo port is runnig as primary
+
+if you find and error please add below and solution above
+
+
+
+
+
