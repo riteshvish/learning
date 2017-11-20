@@ -164,6 +164,10 @@ go inside solr folder and run below command
 to check http://localhost:8983/solr/#/
 
 // create core eg (product)
+refs https://stackoverflow.com/questions/38424574/how-to-create-solr-6-cores
+ref command sudo /Users/Ritesh/Documents/workspace/solr/solr-7.1.0/bin/solr create -c product -force
+
+
 create product folder inside solr
 then copy conf folder form defauld conf to product conf
 and schema.xml
@@ -178,6 +182,8 @@ Also configure the auto commit to true so that Solr auto commits the data from M
     <openSearcher>true</openSearcher>
 </autoCommit>
 After modifying the schema.xml and solrconfig.xml the Solr server needs to be restarted.
+
+
 
 bin/solr restart
 
