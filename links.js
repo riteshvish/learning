@@ -188,6 +188,9 @@ After modifying the schema.xml and solrconfig.xml the Solr server needs to be re
 bin/solr restart
 
 using below command to sync
+kill all the mongo-connector 
+below command will help to find all mongo-connector running
+ps -a | grep mongo-connector
 sudo nohup mongo-connector -m localhost:27017 -t http://localhost:8983/solr/product -d solr_doc_manager -n solr.product -v --auto-commit-interval=0 &
 
 refs links
