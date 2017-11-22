@@ -200,7 +200,10 @@ make sure your mongo port is runnig as primary
 
 if you find and error please add below and solution above
 
+--date--
+var addMonth=function(number){ number=number || 1; var d = new Date(); var d2=new Date(d.setMonth(d.getMonth() + number)).toISOString(); return d2 }
 
+--date ends here---
 
 
 
