@@ -239,3 +239,16 @@ function getQueryStrings() {
 
 ----query String ends here ---
 
+--- node preflight error ---
+app.use('/', function(req, res, next) {
+    res.set("Access-Control-Allow-Origin", "*");
+    res.set("Access-Control-Allow-Headers", "Content-Type,apikey,apiKey,auth_token,isSuperAdmin,totalPages");
+    if (req.method.toLowerCase() == "options") {
+        res.status(200);
+        res.end();
+    } else {
+        next();
+    }
+});
+
+----------------------------
