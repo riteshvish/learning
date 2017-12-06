@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Insta Login</title>
+  </head>
+  <script type="text/javascript">
+    var login_details=localStorage.getItem("login_details");
+    console.log(login_details,"instagramDetails");
+    if(!login_details){
+      location.replace("/login.html");
+    }
+  </script>
+  <body>
+    <!-- <button type="button" name="button" onclick="login()">Login with Instagram</button> -->
+    <!-- public_content -->
+    <!-- <a href="">
+      Login with instagram
+    </a> -->
+    <form class="" action="https://api.instagram.com/oauth/authorize/?client_id=838cd5255582435ba380a69ecdf30fce&redirect_uri=http://192.168.1.75:8080%2F&response_type=code&scope=public_content" method="post">
+      <input type="submit" name="" value="Get Your Feed Access">
+    </form>
+  </body>
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+  <script src="jquery.min.js"></script>
+  <script src="insta.js"></script>
+  <script type="text/javascript">
+  localStorage.removeItem("access_token");
+    var code=getParameterByName("code");
+    console.log("my code",code);
+    if(code){
+      var fData={
+          "client_id":"838cd5255582435ba380a69ecdf30fce",
+          "client_secret":"756f3185b88a479ca5a3d1b576290111",
+          "redirect_uri":"http://192.168.1.75:8080/",
+          "grant_type":"authorization_code",
+          "code":code,
+        }
+        var url="https://api.instagram.com/oauth/access_token";
+          $.post(url, fData).done(function (data) {
+            console.log(data);
+            console.log(login_details);
+            login_details=JSON.parse(login_details);
+            console.log(Object.keys(data.user));
+            var installDetails={"instagramDetails":data}
+            console.log(installDetails);
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": baseUrl+'Brands/update?where={"id":"'+login_details.userId+'"}',
+                "method": "POST",
+                "headers": {
+                  "authorization": login_details.id,
+                  "content-type": "application/json",
+                  "cache-control": "no-cache"
+                },
+                "processData": false,
+                "data":JSON.stringify(installDetails)
+              }
+
+              $.ajax(settings).done(function (response) {
+                console.log(response);
+                  if(data.access_token){
+                    localStorage.setItem("access_token",data.access_token);
+                     location.replace("/feed.html");
+                  }else{
+                    console.log(data);
+                  }
+            }).fail(function(response) {
+                console.log('Error: ' + response.responseText);
+            });;
+        }).fail(function(response) {
+            console.log('Error: ' + response.responseText);
+      });;
+    }
+  </script>
+</html>

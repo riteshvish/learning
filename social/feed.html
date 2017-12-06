@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Feeds</title>
+  </head>
+  <script type="text/javascript">
+  var login_details=localStorage.getItem("login_details");
+    console.log(login_details,"instagramDetails");
+    if(!login_details){
+      location.replace("/login.html");
+    }else{
+        login_details=JSON.parse(login_details);
+    }
+  </script>
+  <body>
+    this is my feed
+    <div class="" id="myFeeds">
+
+    </div>
+    <button type="button" name="button" id="morebutton">More</button>
+  </body>
+  <script src="jquery.min.js"></script>
+  <script src="insta.js"></script>
+  <script type="text/javascript">
+    var access_token=localStorage.getItem("access_token");
+    var nexturl=null;
+    console.log(access_token);
+    function saveToDataBase(data){
+      if(data){
+
+        var userId = login_details.userId;
+
+        data["brandId"]=userId;
+        data["feedId"]=data.id;
+        delete data.id;
+        console.log("----------");
+        console.log(JSON.stringify(data));
+        console.log("----------");
+        var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://localhost:3000/api/Images",
+        "method": "POST",
+        "headers": {
+          "content-type": "application/json",
+          "cache-control": "no-cache",
+          "postman-token": "81b5a34a-1ac7-3ecb-5fa9-38ac4e406dcd"
+        },
+        "processData": false,
+        "data":JSON.stringify(data)}
+
+        $.ajax(settings).done(function (response) {
+          console.log("data",response);
+        }).fail(function(response) {
+            console.log('Error: ' + response.responseText);
+        });
+      }else{
+        console.log("Data not found");
+      }
+    }
+    var  addToInstaFeed = function(data){
+
+      console.log(data,"my data");
+      nexturl=data.pagination ? data.pagination.next_url :null
+      console.log("nexturl ",nexturl);
+      if(!nexturl){
+        $("#morebutton").css({"display":"none"});
+        console.log("Feed end");
+      }
+      for (var i = 0; i < data.data.length; i++) {
+        saveToDataBase(data.data[i])
+        var img=data.data[i]["images"]["standard_resolution"]
+        $("#myFeeds").append(`<p><img src="${img["url"]}" alt="Smiley face" height="${img["height"]}" width="${img["width"]}"></p>`)
+        // $("#myFeeds").append("<p>"+data.data[i]["images"]["thumbnail"]["url"]+"</p>")
+      }
+    }
+
+    getHitServiceAsync(getUserFeed(access_token),function(err,data){
+      if(data){
+        addToInstaFeed(data);
+      }
+      else{
+        console.log(err);
+      }
+    })
+    $("#morebutton").click(function(){
+      console.log("more feed");
+      nextFeed();
+    })
+    var nextFeed=function(){
+      console.log(nexturl);
+      if(nexturl){
+        getHitServiceAsync(nexturl,function(err,data){
+          if(data){
+            addToInstaFeed(data);
+          }
+          else{
+            console.log(err);
+          }
+        })
+      }
+    }
+  </script>
+</html>

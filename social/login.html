@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+  </head>
+  <body>
+    <input type="text" name="" value="riteshvish" id="username" placeholder=""><br>
+    <input type="password" name="" value="ritesh" id="password" placeholder=""><br>
+    <input type="button" name=""  onclick="login()" value="Login">
+    <script src="jquery.min.js"></script>
+    <script src="insta.js"></script>
+    <script type="text/javascript">
+    localStorage.removeItem("login_details");
+    function login(){
+        var username=$("#username").val();
+        var password=$("#password").val();
+        var values={password:password,username:username}
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": baseUrl+"Brands/login",
+          "method": "POST",
+          "headers": {
+            "content-type": "application/json",
+            "cache-control": "no-cache",
+            "postman-token": "3480ed96-c46b-077f-74db-74344aef8656"
+          },
+          "processData": false,
+          "data": JSON.stringify(values)
+        }
+
+        $.ajax(settings).done(function (response) {
+          // console.log(response);
+          if(response.id){
+            localStorage.setItem("login_details",JSON.stringify(response));
+            location.replace("/index.html");
+          }
+        }).fail(function(response) {
+            console.log('Error: ' + response.responseText);
+        });
+      }
+
+    </script>
+  </body>
+
+</html>
