@@ -252,7 +252,7 @@ app.use('/', function(req, res, next) {
         next();
     }
 });
-The preflight is being triggered by your Content-Type of application/json. The simplest way to prevent this is to set the Content-Type to be text/plain in your case. application/x-www-form-urlencoded & multipart/form-data Content-Types are also acceptable, but you'll of course need to format your request payload appropriately.
+The preflight is being triggered by your Content-Type of application/json. The simplest way to prevent this is to set the Content-Type to be text/plain in your case. application/x-www-form-urlencoded & multipart/form-data Content-Types are also acceptable, but youll of course need to format your request payload appropriately.
 
 If you are still seeing a preflight after making this change, then Angular may be adding an X-header to the request as well.
 ----------------------------
