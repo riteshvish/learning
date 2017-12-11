@@ -256,3 +256,37 @@ The preflight is being triggered by your Content-Type of application/json. The s
 
 If you are still seeing a preflight after making this change, then Angular may be adding an X-header to the request as well.
 ----------------------------
+
+-----------------------------
+to stop vertical scroll on webpage
+body {
+    -webkit-touch-callout: none;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    text-size-adjust: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    word-wrap: break-word;
+    font-size: 14px;
+    font-family: -apple-system;
+    font-family: "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+    line-height: 20px;
+    text-rendering: optimizeLegibility;
+    -webkit-backface-visibility: hidden;
+    -webkit-user-drag: none;
+}
+----------------------------
