@@ -293,3 +293,51 @@ body {
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
  // some code..
 }
+--------------------------------------------------------
+  npm install -g nativescript
+  623  sudo npm install -g nativescript
+  624  vi /Users/Ritesh/.npm/_logs/2017-12-12T14_23_50_345Z-debug.log
+  625  sudo npm install -g nativescript
+  626  node -v
+  627  nvm -v
+  628  nvm --version
+  629  nvm install node
+  630  sudo nvm install node
+  631  nvm install node
+  632  nvm install node -v
+  633  sudo npm install -g nativescript
+  634  nvm use node
+  635  nvm install --lts
+  636  nvm use node
+  637  nvm install --lts
+  638  node -v
+  639  sudo npm install -g nativescript
+  640  sudo npm install -g nativescript
+  641  sudo npm install -g nativescript --unsafe-perm
+  642  sudo npm install -g --unsafe-perm nativescript
+  643  sudo npm install -g nativescript
+  644  sudo npm install -g nativescript
+  645  clear
+  646  sudo npm uninstall -g nativescript
+  647  sudo npm install -g nativescript
+  648  sudo mkdir /Users/Ritesh/.nvm/versions/node/v8.9.3/lib/node_modules/nativescript/docs/html
+  649  cd /Users/Ritesh/.nvm/versions/node/v8.9.3/lib/node_modules/nativescript/docs/
+  650  ls
+  651  cd
+  652  clear
+  653  sudo npm install -g nativescript
+  654  sudo npm uninstall -g nativescript
+  655  sudo npm install -g nativescript
+  656  tns --version
+  657  clear
+  658  cd
+  659  cd Documents/learning/github/
+  660  clear
+  661  tns create NativeApp --template nativescript-template-ng-tutorial
+  662  cd NativeApp/
+  663  tns run ios
+  664  tns run ios
+
+  
+  
+  
