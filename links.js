@@ -1,3 +1,10 @@
+-l  LOGFILE      Logs the forever output to LOGFILE
+-o  OUTFILE      Logs stdout from child script to OUTFILE
+-e  ERRFILE      Logs stderr from child script to ERRFILE
+For example:
+
+forever start -o out.log -e err.log my-script.js
+
 Create Native Mobile And Web App With Single Codebase Using Angular2 And Nativescript
 http://shripalsoni.com/blog/create-native-mobile-and-web-app-with-single-codebase-using-angular2-and-nativescript/
 
