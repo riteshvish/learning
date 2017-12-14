@@ -1,3 +1,6 @@
+Create Native Mobile And Web App With Single Codebase Using Angular2 And Nativescript
+http://shripalsoni.com/blog/create-native-mobile-and-web-app-with-single-codebase-using-angular2-and-nativescript/
+
 https://plnkr.co/edit/iFXRkJWVZ9tQ9i6mxmuf?p=preview (JsonCustomInputComponent)
 http://blog.rangle.io/angular-2-ngmodel-and-custom-form-components/
 
