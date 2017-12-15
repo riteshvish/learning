@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Social Login</title>
+
+  </head>
+  <body>
+
+
+    <button type="button" name="button" onclick="facebookLogin()">
+      Login with facebook
+    </button>
+    <button type="button" name="button" onclick="pinterestLogin()">
+      Login with pinterest
+    </button>
+
+
+
+    <script>
+        window.pAsyncInit = function() {
+            PDK.init({
+                appId: "4939392675179675317", // Change this
+                cookie: true
+            });
+        };
+
+        (function(d, s, id){
+            var js, pjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//assets.pinterest.com/sdk/sdk.js";
+            pjs.parentNode.insertBefore(js, pjs);
+        }(document, 'script', 'pinterest-jssdk'));
+      function pinterestLogin(){
+          PDK.login({ scope : 'read_public' }, function(err,data){
+            console.log(err);
+            console.log(data);
+          });
+      }
+
+/*
+openssl req -new -sha256 -newkey rsa:2048 -nodes \
+-keyout localhost.key -x509 -days 365 \
+-out localhost.crt
+*/
+  </script>
+  <script type="text/javascript">
+  // var fb_appID="253715471827333";
+//798178197025696
+//253715471827333 NOT WORKING
+// 204639960093602 oth
+  window.fbAsyncInit = function() {
+
+    FB.init({
+      appId      : '204639960093602',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+  var facebookLogin = function() {
+      // alert("204639960093602 ")
+      console.log("======================================");
+      FB.login(function(response) {
+          console.log("login response", response)
+          if (response.authResponse) {
+              console.log('Welcome!  Fetching your information.... ');
+              FB.api('/me', function(response) {
+                  var values = {};
+                  console.log("me response", response)
+                  FB.api('/me/accounts', 'GET', {}, function(response) {
+                      console.log("me accounts response ", response)
+                      var page_id = response["data"][0]["id"]
+                      FB.api(
+                          '/' + page_id + '/posts',
+                          'GET', {},
+                          function(response) {
+                              // Insert your code here
+                              console.log("Pages response ", response);
+                              var post_id = response["data"][0]["id"]
+                              FB.api(
+                                  '/' + post_id + '/attachments',
+                                  'GET', {},
+                                  function(response) {
+                                      // Insert your code here
+                                      console.log("post attachments response ", response)
+                                      console.log(`post attachments response response["data"][0]["subattachments"]["data"][0]["media"]["image"]["src"] image\n`, response["data"][0]["subattachments"]["data"][0]["media"]["image"]["src"])
+                                      console.log("======================================");
+                                  }
+                              );
+                          }
+                      );
+                  });
+
+              });
+          } else {
+              alert('User cancelled login or did not fully authorize.');
+          }
+      }, {
+          scope: 'manage_pages',
+          return_scopes: true
+      });
+  }
+//215850918509831 // page id
+
+// 215850918509831_1537799689648274 // post id
+// FB.api(
+//   '/215850918509831_1537799689648274/attachments',
+//   'GET',
+//   {},
+//   function(response) {
+//       // Insert your code here
+//   }
+// );
+    </script>
+
+  </body>
+</html>
