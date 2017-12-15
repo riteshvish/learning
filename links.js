@@ -1,3 +1,7 @@
+Facebook Graph Api Explorer
+https://developers.facebook.com/tools/explorer/
+
+
 -l  LOGFILE      Logs the forever output to LOGFILE
 -o  OUTFILE      Logs stdout from child script to OUTFILE
 -e  ERRFILE      Logs stderr from child script to ERRFILE
