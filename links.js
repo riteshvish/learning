@@ -1,17 +1,21 @@
+=================================================================
+Angular CLI Deployment: Host Your Angular 2 App on Heroku
+https://medium.com/@ryanchenkie_40935/angular-cli-deployment-host-your-angular-2-app-on-heroku-3f266f13f352
+=================================================================
 Facebook Graph Api Explorer
 https://developers.facebook.com/tools/explorer/
 
-
+=================================================================
 -l  LOGFILE      Logs the forever output to LOGFILE
 -o  OUTFILE      Logs stdout from child script to OUTFILE
 -e  ERRFILE      Logs stderr from child script to ERRFILE
 For example:
 
 forever start -o out.log -e err.log my-script.js
-
+=================================================================
 Create Native Mobile And Web App With Single Codebase Using Angular2 And Nativescript
 http://shripalsoni.com/blog/create-native-mobile-and-web-app-with-single-codebase-using-angular2-and-nativescript/
-
+=================================================================
 https://plnkr.co/edit/iFXRkJWVZ9tQ9i6mxmuf?p=preview (JsonCustomInputComponent)
 http://blog.rangle.io/angular-2-ngmodel-and-custom-form-components/
 
