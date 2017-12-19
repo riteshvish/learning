@@ -1,3 +1,8 @@
+
+=================================================================
+Get Hash tags from string
+var comments="#chair #decor #furniture #furnitureinspiration fasds sadfa #d # # #style";
+var hashtags=comment.split("#").map(function(b2){ var c=b2.split(" "); if(c[0]) { return c[0]}}).filter(function(b2){return b2})
 =================================================================
 Angular CLI Deployment: Host Your Angular 2 App on Heroku
 https://medium.com/@ryanchenkie_40935/angular-cli-deployment-host-your-angular-2-app-on-heroku-3f266f13f352
