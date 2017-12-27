@@ -1,7 +1,7 @@
 =========================================================================================================================================
 App banner
 https://github.com/ain/smartbanner.js
-
+http://www.informit.com/articles/article.aspx?p=2301787&seqNum=3
 =========================================================================================================================================
 var addMonth=function(number){ number=number || 1; var d = new Date(); var d2=new Date(d.setMonth(d.getMonth() + number)).toISOString(); return d2 }
 var diffDate=function(start,end){	var startDate = new Date(start);var endDate   = new Date(end);return (endDate.getTime() - startDate.getTime()) / 1000;}
