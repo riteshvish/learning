@@ -1,6 +1,20 @@
 =========================================================================================================================================
-var facebook verification
+var getDeviceName = function() {
+			if (/Android|webOS|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+				return 'android';
+			} else if (/BlackBerry/i.test(navigator.userAgent)) {
+				return 'blackberry';
+			} else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+				return 'apple';
+			} else {
+				return 'system';
+			}
+		}
 
+=========================================================================================================================================
+var facebook verification
+please sub apps
+check mail
 {
 query: {
 hub.mode: "subscribe",
