@@ -1,3 +1,7 @@
+angular remove hash
+
+https://www.youtube.com/watch?v=_roIN2uNn68
+.htaccess
 =========================================================================================================================================
 var getDeviceName = function() {
 			if (/Android|webOS|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
