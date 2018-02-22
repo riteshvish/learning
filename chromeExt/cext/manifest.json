@@ -1,16 +1,22 @@
 {
-  "manifest_version": 2,
+    "name": "First",
+    "version": "1.0",
+    "manifest_version": 2,
+    "description": "First extension",
+    "background": {
+        "scripts": ["test.js"]
+    },
+    "page_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [ {
+        "js": [ "jquery.min.js", "content_script.js"  ],
+        "matches": [ "http://*/*", "https://*/*" ]
+    } ],
 
-  "name": "Getting started example",
-  "description": "This extension allows the user to change the background color of the current page.",
-  "version": "1.0",
-
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
-  },
-  "permissions": [
-    "activeTab",
-    "storage"
-  ]
+    "permissions" : [
+        "tabs",
+        "http://*/*"
+    ]
 }

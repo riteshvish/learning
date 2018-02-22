@@ -1,0 +1,14 @@
+/Users/Ritesh/.nvm/versions/node/v8.9.3/bin/tns -> /Users/Ritesh/.nvm/versions/node/v8.9.3/lib/node_modules/nativescript/bin/tns
+/Users/Ritesh/.nvm/versions/node/v8.9.3/bin/nativescript -> /Users/Ritesh/.nvm/versions/node/v8.9.3/lib/node_modules/nativescript/bin/tns
+
+> fsevents@1.1.2 install /Users/Ritesh/.nvm/versions/node/v8.9.3/lib/node_modules/nativescript/node_modules/fsevents
+> node install
+
+[fsevents] Success: "/Users/Ritesh/.nvm/versions/node/v8.9.3/lib/node_modules/nativescript/node_modules/fsevents/lib/binding/Release/node-v57-darwin-x64/fse.node" already installed
+Pass --update-binary to reinstall or --build-from-source to recompile
+
+> nativescript@3.3.1 postinstall /Users/Ritesh/.nvm/versions/node/v8.9.3/lib/node_modules/nativescript
+> node postinstall.js
+
++ nativescript@3.3.1
+added 685 packages and updated 7 packages in 76.105s
