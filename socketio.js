@@ -33,8 +33,8 @@ var getUsersInRoomNumber = function(roomName, namespace) {
    return room.length;//Object.keys(room.soc).length;
 }
 
-var ios_Legacy_Server_Key = 'key=AIzaSyAZ-uI5kZPnrEorBlYxvzg_FsdZ3s9hQV8';
-var android_Legacy_Server_Key = 'key=AIzaSyDqbmQuZcLpF7q-eGtR9_qLnA1AjqZInq8';
+var ios_Legacy_Server_Key = 'key=AIzaSyAZ-uI5kZPrEorBlYxvzg_FsdZ3s9hQV8';
+var android_Legacy_Server_Key = 'key-eGtR9_qLnA1AjqZInq8';
 var fcmUrl = 'https://fcm.googleapis.com/fcm/send';
 //data.user._id
 function triggerNotification(data, callback) {

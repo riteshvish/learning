@@ -1,8 +1,69 @@
+=========================================================================================================================================
+https://github.com/angular/angular/issues/19009
+angular remove hash
+https://www.youtube.com/watch?v=_roIN2uNn68
+.htaccess
+=========================================================================================================================================
+var getDeviceName = function() {
+			if (/Android|webOS|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+				return 'android';
+			} else if (/BlackBerry/i.test(navigator.userAgent)) {
+				return 'blackberry';
+			} else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+				return 'apple';
+			} else {
+				return 'system';
+			}
+		}
+
+=========================================================================================================================================
+var facebook verification
+please sub apps
+check mail
+{
+query: {
+hub.mode: "subscribe",
+hub.challenge: "304864324",
+hub.verify_token: "thisisnewappjustfortesting"
+}
+}
+=========================================================================================================================================
+For Background
+https://www.pexels.com/
+For icon images
+https://icons8.com/
+For sending transaction mail
+https://sendgrid.com/
+=========================================================================================================================================
+ionic creator grid
+  <div class="row">
+ <div class="col col-50">1</div> 
+ <div class="col col-50">2</div> 
+ </div>
+
+=========================================================================================================================================
+Loopback
+lb-ng ../server/server.js js/lb-services.js
+=========================================================================================================================================
+App banner
+https://github.com/ain/smartbanner.js
+http://www.informit.com/articles/article.aspx?p=2301787&seqNum=3
+=========================================================================================================================================
+var addMonth=function(number){ number=number || 1; var d = new Date(); var d2=new Date(d.setMonth(d.getMonth() + number)).toISOString(); return d2 }
+var diffDate=function(start,end){	var startDate = new Date(start);var endDate   = new Date(end);return (endDate.getTime() - startDate.getTime()) / 1000;}
 
 =========================================================================================================================================
 Get Hash tags from string
 var comments="#chair #decor #furniture #furnitureinspiration fasds sadfa #d # # #style";
 var hashtags=comment.split("#").map(function(b2){ var c=b2.split(" "); if(c[0]) { return c[0]}}).filter(function(b2){return b2})
+
+addLinkToHashTag
+var comment="It's time to say hello to a good night's sleep with pillows from #PorticoNewYork. 💤💤💤 Discover the pillow type that suits you best. . . . . . #Sleep #Peaceful #Pillow #PillowTalk #PillowSecrets #PorticoNewYork #PorticoIndia #Fluffy #Comfort #Cozy #Dreams #MemoryFoam #BambooCharcoal #Love #Trend #Trending #White #Fusion #GreenTea #Health #GetHealthy #Information #Tips #Help #Ergonomy #Lifestyle #Bedding";
+var addLinkToHashTag=function(message){
+  return message.replace(/#(\w+)/g, "<a href='$1'>#$1</a>");
+}
+console.log(addLinkToHashTag(comment));
+console.log( comment.replace(/#(\w+)/g, "<a href='$1'>#$1</a>") );
 =========================================================================================================================================
 Angular CLI Deployment: Host Your Angular 2 App on Heroku
 https://medium.com/@ryanchenkie_40935/angular-cli-deployment-host-your-angular-2-app-on-heroku-3f266f13f352
