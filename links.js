@@ -1,3 +1,13 @@
+
+
+Mongo dump and restore (limit data, different dump folder)
+facts 
+it will save docs in collections with same id and details 
+if you try to save same id you will get error eg _id_ dup key: { : ObjectId('5a3772412cbaf40fbf0f8102') } 
+remove -g eg -q '{username: "riteshvish"}'; for full collection dump
+
+mongodump -o /Users/Ritesh/Documents/workspace/accio/mongodump/ -d 'database_name' -c 'collection_name' -q '{username: "riteshvish"}';
+mongorestore --collection people --db accounts /Users/Ritesh/Documents/workspace/mongodump/database_name/collection_name.bson
 =========================================================================================================================================
 https://github.com/angular/angular/issues/19009
 angular remove hash
