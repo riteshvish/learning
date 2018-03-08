@@ -1,3 +1,38 @@
+=========================================================================================================================================
+
+var queue = [];
+var active = false;
+
+var check = function() {
+  if (!active && queue.length > 0) {
+    var f = queue.shift();
+    f();
+  }
+}
+
+var fakeAsync = function(param, cb) {
+  console.log("time new", new Date());
+  setTimeout(function() {
+    console.log("done! ", param);
+    cb();
+  }, 5000);
+}
+
+var invoke = function(param) {
+  queue.push(function() {
+    active = true;
+    fakeAsync(param, function() {
+      active = false;
+      check();
+    });
+  });
+  check();
+}
+
+invoke("a");
+invoke("b");
+invoke("c");
+=========================================================================================================================================
 
 
 Mongo dump and restore (limit data, different dump folder)
