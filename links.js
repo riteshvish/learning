@@ -1,4 +1,7 @@
-
+=========================================================================================================================================
+ var modelCollection = Model.getDataSource().connector.collection(Model.modelName);
+ modelCollection.distinct("status", {},function(err, records) {})
+		
 Shared data with query in spread sheet
 =QUERY(Articles!A:Z,"SELECT * WHERE D > 0")
 
