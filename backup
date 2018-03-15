@@ -1,0 +1,136 @@
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+var async = require('async');
+var fs = require('fs');
+const {
+  exec
+} = require('child_process');
+var argv = process.argv;
+var fromDate = new Date();
+var databaseName = "accio_publishers"
+const fromurl = 'mongodb://localhost:27017';
+
+var execCommand = function(cmd, cb) {
+  console.log(cmd);
+  exec(cmd, function(err, stdout, stderr) {
+    if (err) {
+      return cb(err);
+    } else {
+      return cb(null, stderr)
+    }
+  });
+}
+
+var getDumpFromCollections = function(db, collection, query, cb) {
+  var dbname = db["databaseName"];
+  var command = "mongodump -o dump/full --host localhost --port 27017 -d '" + dbname + "' -c '" + collection + "'";
+  var command2 = "mongodump -o dump/delta --host localhost --port 27017 -d '" + dbname + "' -c '" + collection + "'";
+  if (query) {
+    command2 += " -q '" + JSON.stringify(query) + "'"
+  }
+  return execCommand(command2, cb)
+}
+
+
+var zipAndMail = function(cb) {
+  var command = "zip -r mongodump.zip dump/"
+  return execCommand(command, cb)
+}
+var collectToServer = function(url, dbName, cb) {
+  console.log("connecting to mongo server ...");
+  MongoClient.connect(url, function(err, client) {
+    if (err) {
+      console.log("connection failed");
+      cb(err)
+    } else {
+      console.log("connected to mongo server");
+      cb(null, client, client.db(dbName))
+    }
+  });
+}
+
+var getListofDatabase = function(client, db, cb) {
+  var adminDb = db.admin();
+  adminDb.listDatabases(function(err, dbs) {
+    cb(err, client, dbs)
+  });
+}
+
+var getAllCollectionsFromDatabase = function(db, cb) {
+  db.listCollections().toArray().then(function(collection) {
+    var newColl = collection.map(function(c) {
+      return c.name
+    });
+    cb(null, db, newColl);
+  }).catch(function(err) {
+    cb(err);
+  });
+}
+
+
+
+var interateCollection = function(db, collections, cb) {
+  async.map(collections, function(collection, mapcb) {
+    var dbcollection = db.collection(collection);
+    /*
+      count;
+      delta:
+      deleted
+      backup
+     */
+    getDumpFromCollections(db, collection, "", function(err, data) {
+      dbcollection.count({}, function(err, count) {
+        var d = {}
+        d[collection] = count;
+        mapcb(err, d)
+      })
+    })
+  }, function(err, results) {
+    cb(null, results)
+  })
+}
+
+var interateDatabases = function(client, dbs, cb) {
+  // console.log(dbs); // save this file
+  async.map(dbs.databases, function(database, mapcb) {
+    console.log(database.name);
+    var db = client.db(database.name)
+    async.waterfall([
+      function(waterfallcb) {
+        getAllCollectionsFromDatabase(db, function(err, dbObj, collections) {
+          console.log(collections);
+          waterfallcb(err, dbObj, collections)
+        })
+      },
+      interateCollection
+    ], function(err, results) {
+      mapcb(err, results)
+    })
+  }, function(err, results) {
+    console.log();
+    cb(err, results)
+  })
+}
+
+var takeBackup = function() {
+  async.waterfall([
+    function(callback) {
+      collectToServer(fromurl, databaseName, function(err, client, db) {
+        callback(err, client, db)
+      })
+    },
+    getListofDatabase,
+    interateDatabases,
+  ], function(err, results) {
+    if (err) {
+      console.log(err);
+    }
+    console.log(results);
+    zipAndMail(function(err, info) {
+      process.exit();
+    })
+  })
+}
+takeBackup();
+
+// mongorestore --host localhost --port 27017  -d 'dbname' -c 'collections'  /Users/Ritesh/Documents/workspace/dbname/mongodump/dbname/collections.bson
