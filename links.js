@@ -1,4 +1,37 @@
 =========================================================================================================================================
+var year = 2016;
+var mS = ['jan', 'feb', 'mar', 'apr', 'may', 'june', 'july', 'aug', 'sept', 'oct', 'nov', 'dec'];
+
+function getDaysInMonth(m, y) {
+  return /8|3|5|10/.test(--m) ? 30 : m == 1 ? (!(y % 4) && y % 100) || !(y % 400) ? 29 : 28 : 31;
+}
+var getNextDate = function(month, previous) {
+  var index = mS.indexOf(month);
+  if (index < 0) {
+    process.exit();
+  }
+  console.log(index);
+  var days = getDaysInMonth(index + 1, year)
+  var getNextMonth = function() {
+
+    if (index == 11) {
+      year++;
+      return mS[0]
+    }
+    return mS[index + 1]
+
+  }
+  var next = getNextMonth()
+  return {
+    current: mS[index],
+    previous: mS[(index - 1) < 0 ? 11 : index - 1],
+    days: days,
+    start: new Date(year, index, 1),
+    end: new Date(year, index, days, 23, 59, 59),
+    next: next
+  }
+}
+=========================================================================================================================================
  var modelCollection = Model.getDataSource().connector.collection(Model.modelName);
  modelCollection.distinct("status", {},function(err, records) {})
 		
