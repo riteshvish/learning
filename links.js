@@ -1,3 +1,39 @@
+
+=========================================================================================================================================
+Node Custom Logger
+var fs = require('fs');
+app.use(function loggerMiddleware(req, res, next) {
+  const start = Date.now();
+  req.time = start;
+  res.once('finish', () => {
+    var elapsedMS = Date.now() - start
+    var data = {
+      "status": res.statusCode,
+      "message": res.statusMessage,
+      "content-length": res._headers["content-length"],
+      "host": res.req.headers["host"],
+      "ip": res.req.ip,
+      "method": res.req.method,
+      "url": res.req.url,
+      "user-agent": res.req.headers["user-agent"],
+      "request-time": res.req.time,
+      "respond-time": start + elapsedMS,
+      "elapse-time": elapsedMS
+    }
+    console.log(data);
+    console.log(req.method, req.url, `${elapsedMS}ms done`);
+    var nick = "testingsfasd";
+    var file = './log/' + nick + '.log';
+    var text = JSON.stringify(data) + ',\r\n';
+    fs.appendFile(file, text, function(err) {
+      if (err) return console.log(err);
+      console.log('successfully appended "' + text + '"');
+    });
+
+  });
+  next();
+});
+
 =========================================================================================================================================
 var year = 2016;
 var mS = ['jan', 'feb', 'mar', 'apr', 'may', 'june', 'july', 'aug', 'sept', 'oct', 'nov', 'dec'];
