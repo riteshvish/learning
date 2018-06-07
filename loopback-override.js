@@ -77,3 +77,4 @@ Product.remoteMethod(
     isStatic: true
   }
 );
+Product.disableRemoteMethod('findById', true);
