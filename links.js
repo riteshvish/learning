@@ -1,3 +1,45 @@
+
+=========================================================================================================================================
+
+
+https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/
+=========================================================================================================================================
+Git Repository Forking
+
+
+Creating and Forking a Repository:
+
+Create Project Repository (Main Repo)
+Add branches master, staging and dev in Main Repo
+Fork Repository (Fork Repo)
+
+
+Cloning Repository and Working with Fork Repo:
+
+Clone Main Repo: git clone <main-repo-link>
+Rename Main Repo from 'origin' to 'upstream': git remote rename origin upstream
+Add Fork Repo in remote: git remote add origin <fork-repo-link>
+Verify Remote Repository Tracks: git remote -v
+          Look for following output:
+          origin <fork-repo-link> (fetch)
+          origin <fork-repo-link> (push)
+          upstream <main-repo-link> (fetch)
+          upstream <main-repo-link> (push)
+
+
+
+Creating a New Branch and Working with it:
+
+Create New Branch in Main Repo (upstream)
+Fetch All Branches in your Local Repo and Checkout New Branch: git fetch && git checkout <branch-name>
+Push New Branch to Fork Repo (origin): git push origin <branch-name>
+Push All Commits to Fork Repo (origin)
+On Work Completion, Create a Pull Request from Fork Repo to Main Repo for Same Branch
+=========================================================================================================================================
+
+// create user for mongo
+db.createUser( { user: "leadmanager", pwd: "leadmanager", roles: [{ role: "readWrite", db: "digitalmodule" }]} )
+
 =========================================================================================================================================
 remove product form solr
 curl solrurl/collection/update?commit=true -H "Content-type: text/xml" --data-binary '<delete><query>_id:5a54d1c6204cc5c75ea62eef</query></delete>'
