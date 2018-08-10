@@ -1,4 +1,26 @@
 
+
+
+=========================================================================================================================================
+Getting list of all children from adjacency tree
+https://wiki.postgresql.org/wiki/Getting_list_of_all_children_from_adjacency_tree
+	
+	
+CREATE OR REPLACE FUNCTION get_all_hierarchy_array(use_parent text) RETURNS text[] AS $$
+DECLARE
+    process_parents text[] := ARRAY[ use_parent ];
+    children text[] := '{}';
+    new_children text[];
+BEGIN
+    WHILE ( array_upper( process_parents, 1 ) IS NOT NULL ) LOOP
+        new_children := ARRAY( SELECT agent_num FROM table_name WHERE rep_to = ANY( process_parents ) AND agent_num <> ALL( children ) );
+        children := children || new_children;
+        process_parents := new_children;
+    END LOOP;
+    RETURN children;
+END;
+$$ LANGUAGE plpgsql;
+
 =========================================================================================================================================
 
 
