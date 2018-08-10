@@ -21,6 +21,30 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+CREATE OR REPLACE FUNCTION get_all_agent_hierarchy_product_mix(use_parent text)
+RETURNS TABLE (
+data_ulip numeric,
+data_par numeric,
+data_non_par numeric    
+)
+AS $$
+DECLARE
+   process_parents text[] := ARRAY[ use_parent ];
+   children text[] := '{}';
+   new_children text[];
+    return_data text[];
+BEGIN
+   WHILE ( array_upper( process_parents, 1 ) IS NOT NULL ) LOOP
+       new_children := ARRAY( SELECT agent_num FROM table_name WHERE rep_to = ANY( process_parents ) AND agent_num <> ALL( children ) );
+       children := children || new_children;
+       process_parents := new_children;
+   END LOOP;
+    RETURN QUERY SELECT sum(cast(ulip as numeric)),sum(cast(par as numeric)),sum(cast(non_par as numeric)) FROM table_name WHERE agent_num = ANY( children ) OR agent_num=use_parent ;
+
+END;
+$$ LANGUAGE plpgsql;
+
 =========================================================================================================================================
 
 
