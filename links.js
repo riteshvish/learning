@@ -1,3 +1,83 @@
+
+=========================================================================================================================================
+Angular2-6 form validaion on button click/blur
+	import { BrowserModule } from '@angular/platform-browser';
+import { NgModule }  from '@angular/core';
+import { FormsModule }   from '@angular/forms';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+	import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'validationApp';
+  login: UserOptions = { username: '', password: '',
+  "email":"",
+  alphanumberic:""
+  };
+  submitted = false;
+
+  constructor() { }
+
+  onLogin(form: NgForm) {
+    this.submitted = true;
+    if (form.valid) {
+
+      alert("j,s")
+    }
+  }
+
+
+}
+
+	
+	<div>
+  <form #loginForm="ngForm" class="page-form">
+    <input [(ngModel)]="login.email" name="email" type="text" #email="ngModel" spellcheck="false" placeholder="email" autocapitalize="off" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
+    <span [hidden]="email.valid || submitted == false" color="danger" padding-left>
+				Email is required
+		</span><br>
+
+    <input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" placeholder="username" spellcheck="false" autocapitalize="off" required/>
+
+
+    <span [hidden]="username.valid || submitted == false" color="danger" padding-left>
+				Username is required
+			</span><br>
+
+
+    <input [(ngModel)]="login.password" placeholder="password" name="password" type="password" #password="ngModel" required/>
+    <span [hidden]="password.valid || submitted == false" color="danger" padding-left>
+				Password is required
+		</span><br>
+    <input [(ngModel)]="login.alphanumberic" placeholder="alphanumberic" name="alphanumberic" pattern="^[a-zA-Z0-9]*$" type="text" #alphanumberic="ngModel" required/>
+    <span [hidden]="alphanumberic.valid || submitted == false" color="danger" padding-left>
+				alphanumberic is required
+		</span><br>
+    <button ion-button (click)="onLogin(loginForm)" type="submit" block>Login</button>
+    <br>
+
+  </form>
+</div>
 =========================================================================================================================================
 Convert JSON to CSV
 	http://jsfiddle.net/hybrid13i/JXrwM/
