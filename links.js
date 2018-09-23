@@ -1,5 +1,35 @@
 
 =========================================================================================================================================
+https://hackernoon.com/how-to-apply-acls-to-loopback-application-1871fb51cc21
+superadmin is custome role you can use any role eg employee,viwer etc
+create user with role
+eg {
+{username: 'ritesh',role:"superadmin", email: 'john@doe.com', password: 'ritesh'}
+}
+
+create role if not eg {name: 'superadmin'}
+create principals with relation of role
+
+eg
+//role is created object
+role.principals.create({
+principalType: RoleMapping.USER,
+principalId: user.id} // user id
+
+add acl
+{
+  "accessType": "*",
+  "principalType": "ROLE",
+  "principalId": "$everyone",
+  "permission": "DENY"
+},
+{
+  "accessType": "*",
+  "principalType": "ROLE",
+  "principalId": "superadmin",
+  "permission": "ALLOW"
+}
+=========================================================================================================================================
 https://stackoverflow.com/questions/18758772/how-do-i-validate-a-date-in-this-format-yyyy-mm-dd-using-jquery/18758944
 function isValidDate(dateString) {
   var regEx = /^\d{4}-\d{2}-\d{2}$/;
