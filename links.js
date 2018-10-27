@@ -1,5 +1,10 @@
 
 =========================================================================================================================================
+split large csv into small file
+split -l 200 dedupe1.csv.csv && for i in *; do mv "$i" "$i.csv"; done
+https://eikhart.com/blog/autosplit-csv
+
+=========================================================================================================================================
 https://hackernoon.com/how-to-apply-acls-to-loopback-application-1871fb51cc21
 superadmin is custome role you can use any role eg employee,viwer etc
 create user with role
