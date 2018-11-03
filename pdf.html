@@ -4,6 +4,7 @@
 html,body{
   margin: 0;
   padding: 0;
+  color: #1b1919
 
 }
 .pdf-page{
@@ -11,44 +12,92 @@ html,body{
   margin: auto;
   margin: 0px;
   width: 610px;
+  /* background: red; */
   height: 790px;
   position: relative;
+  font-family: sans-serif;
+  text-align: center;
 }
 .container{
-  margin: 50px;
-  top: 100px;
-  background: #f2f2f2;
+  /* sum of top height bottom must be <=790 */
+  /* margin: 50px; */
+  top: 150px;
+  left: 50;
+  right: 50px;
+
   height:540px;
   position: absolute;
+  text-align: left;
 
 }
 .image{
-  max-width:100%
+  max-width:100%;
+  max-height:100%
+}
+table {
+    border-collapse: collapse;
+     width: 100%;
+     font-size: 12px
+}
+
+table, th{
+    border: 1px solid  #1b1919;
+}
+th{
+  text-align: left;
+  font-weight: normal;
+}
+th,td{
+  padding: 2px 4px;
+  border-left: 1px solid  #1b1919;
+}
+.number{
+  text-align: right;
 }
 </style>
 </head>
 <body>
   <div class="pdf-page">
-    <img src="letterhead image source" alt="" class="image">
+    <!-- Letter header link -->
+    
+    <img src="image src" alt="" class="image">
     <div class="container">
-      <table>
+      <div class="" style="height:120px;" >
 
-      </table>
+      </div>
+      <table>
+    <tr>
+      <th width="15%">ID</th>
+      <th  width="40%">Description</th>
+      <th class="number"  width="15%">Unit Price</th>
+      <th class="number" width="15%">Qty</th>
+      <th class="number" width="15%">Amount</th>
+    </tr>
+    <tr>
+      <td>Peter</td>
+      <td>Griffin</td>
+      <td class="number">$100</td>
+      <td class="number">$100</td>
+      <td class="number">$100</td>
+    </tr>
+    <tr>
+      <td>Peter</td>
+      <td>Griffin</td>
+      <td class="number">$100</td>
+      <td class="number">$100</td>
+      <td class="number">$100</td>
+    </tr>
+    <tr>
+      <td>Peter</td>
+      <td>Griffin</td>
+      <td class="number">$100</td>
+      <td class="number">$100</td>
+      <td class="number">$100</td>
+    </tr>
+
+  </table>
+
     </div>
   </div>
 </body>
 </html>
-
-function createPDF(){
-  var fs = require('fs');
-  var pdf = require('html-pdf');
-  var html = fs.readFileSync('test.html', 'utf8');
-  var options = { format: 'Letter' };
-
-  pdf.create(html, options).toFile('businesscardd.pdf', function(err, res) {
-    if (err) return console.log(err);
-    console.log(res); // { filename: '/app/businesscard.pdf' }
-  });
-}
-
-createPDF()
