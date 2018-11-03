@@ -1,0 +1,54 @@
+<html>
+<head>
+<style>
+html,body{
+  margin: 0;
+  padding: 0;
+
+}
+.pdf-page{
+  background-size: 100% auto;
+  margin: auto;
+  margin: 0px;
+  width: 610px;
+  height: 790px;
+  position: relative;
+}
+.container{
+  margin: 50px;
+  top: 100px;
+  background: #f2f2f2;
+  height:540px;
+  position: absolute;
+
+}
+.image{
+  max-width:100%
+}
+</style>
+</head>
+<body>
+  <div class="pdf-page">
+    <img src="letterhead image source" alt="" class="image">
+    <div class="container">
+      <table>
+
+      </table>
+    </div>
+  </div>
+</body>
+</html>
+
+function createPDF(){
+  var fs = require('fs');
+  var pdf = require('html-pdf');
+  var html = fs.readFileSync('test.html', 'utf8');
+  var options = { format: 'Letter' };
+
+  pdf.create(html, options).toFile('businesscardd.pdf', function(err, res) {
+    if (err) return console.log(err);
+    console.log(res); // { filename: '/app/businesscard.pdf' }
+  });
+}
+
+createPDF()
