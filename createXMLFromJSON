@@ -1,0 +1,28 @@
+var obj={
+  a:1,
+  b:[{a:1,b:1},{a:2,b:2}],
+  e:[{a:1,b:1},{a:2,b:{a:1,b:{a:1,b:[{a:1,b:1},{a:2,b:{a:1,b:{a:1,b:1}}}]}}}],
+  c:{b:1},
+  d:{a:{b:1}}
+}
+function createXML(obj,p) {
+  let str='<'+p+'>\n'
+  for (var variable in obj) {
+    if(typeof obj[variable]==='object'){
+      if(Array.isArray(obj[variable])){
+        for (_obj of obj[variable]) {
+            str+=createXML(_obj,variable)
+        }
+      }else{
+        str+=createXML(obj[variable],variable)
+      }
+    }else{
+      str+='<'+variable+'>'+obj[variable]+'</'+variable+'>\n'
+    }
+  }
+  str+='</'+p+'>'
+  return str
+}
+console.log("\n\n");
+console.log(JSON.stringify(obj,null,1));
+console.log(createXML(obj,'obj'));
